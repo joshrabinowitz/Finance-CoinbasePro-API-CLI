@@ -31,16 +31,16 @@ perldoc command.
 You can also look for information at:
 
     RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Finance-CoinbasePro-API-CLI
+        https://rt.cpan.org/NoAuth/Bugs.html?Dist=Finance-CoinbasePro-API-CLI
 
     AnnoCPAN, Annotated CPAN documentation
         http://annocpan.org/dist/Finance-CoinbasePro-API-CLI
 
     CPAN Ratings
-        http://cpanratings.perl.org/d/Finance-CoinbasePro-API-CLI
+        https://cpanratings.perl.org/d/Finance-CoinbasePro-API-CLI
 
     Search CPAN
-        http://search.cpan.org/dist/Finance-CoinbasePro-API-CLI/
+        https://metacpan.org/release/Finance-CoinbasePro-API-CLI
 
 
 LICENSE AND COPYRIGHT

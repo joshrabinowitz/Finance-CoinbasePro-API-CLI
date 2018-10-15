@@ -56,7 +56,7 @@ joshr, C<< <joshr at joshr.com> >>
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-finance-coinbasepro-api-cli at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Finance-CoinbasePro-API-CLI>.  I will be notified, and then you'll
+the web interface at L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=Finance-CoinbasePro-API-CLI>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 
@@ -75,7 +75,7 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker (report bugs here)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Finance-CoinbasePro-API-CLI>
+L<https://rt.cpan.org/NoAuth/Bugs.html?Dist=Finance-CoinbasePro-API-CLI>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -83,11 +83,11 @@ L<http://annocpan.org/dist/Finance-CoinbasePro-API-CLI>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/Finance-CoinbasePro-API-CLI>
+L<https://cpanratings.perl.org/d/Finance-CoinbasePro-API-CLI>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/Finance-CoinbasePro-API-CLI/>
+L<https://metacpan.org/release/Finance-CoinbasePro-API-CLI>
 
 =back
 
