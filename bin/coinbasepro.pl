@@ -28,18 +28,12 @@ use Finance::CoinbasePro::API::CLI::Fill;
 use Finance::CoinbasePro::API::CLI::Account;
 use Finance::CoinbasePro::API::CLI::Trade;
 
-use lib '/opt/jcreds/lib';
-use GDAXSetup;
-my @creds = ( key        => GDAXSetup::api_key(),
-              secret     => GDAXSetup::api_secret(),
-              passphrase => GDAXSetup::passphrase(), 
-              debug      => 0 );
+
 my $prog = basename($0);
 my $verbose;
 my $dryrun;
-my $environment = "production";
-my @all_products = ("BTC-USD", "BCH-USD"); #"ETH-USD", "BTC-ETH");
-my $product = "BTC-USD";
+my @all_products = ("BTC-USD", "BCH-USD");   #"ETH-USD", "BTC-ETH");
+my $product = "BTC-USD";    # default product
 my $side = "";  # buy or sell
 my $price = 0;
 my $order;
@@ -52,7 +46,7 @@ my $top_max = 1;
 # Usage() : returns usage information
 sub Usage {
     "$prog (" . join("|", @allowed_actions) . ") \n" . 
-    "   [--verbose] [--dryrun] [--env=production] [--product=BTC-USD] [--price=N] [--size=N] [--cancel]:\n" .
+    "   [--verbose] [--dryrun] [--product=BTC-USD] [--price=N] [--size=N] [--cancel]:\n" .
     "   shows data from GDAX\n";
 }
 sub ddump {
@@ -82,7 +76,6 @@ sub main {
     }
 
     if ($action =~ /^(buy|sell)$/) {
-        #die "$prog: side must be 'buy' or 'sell', not '$side'\n" unless ($side =~ /^(buy|sell)$/);
         die "$prog: price must be non-zero, not '$price'\n"  unless $price;
         die "$prog: size must be non-zero, not '$size'\n"  unless $size;
     } 
@@ -90,6 +83,14 @@ sub main {
     $SIG{__DIE__} = \&Carp::confess;
     $SIG{__WARN__} = \&Carp::confess;
 
+    #my @creds = ( key        => GDAXSetup::api_key(),
+    #              secret     => GDAXSetup::api_secret(),
+    #              passphrase => GDAXSetup::passphrase(), 
+    #              debug      => 0 );
+    my @creds = ( key        => $ENV{GDAX_API_KEY} || "",
+                  secret     => $ENV{GDAX_API_SECRET} || "",
+                  passphrase => $ENV{GDAX_API_PASSPHRASE} || "",
+                  debug      => 0 );
 
     ## ACCOUNTS
     if ($action eq "accounts") {
@@ -121,7 +122,7 @@ sub main {
     #}   
     # ORDERS
     elsif ($action eq "orders") {
-        my @open_orders = get_open_orders();
+        my @open_orders = get_open_orders( @creds );
         print "$prog: $action:\n";
         for my $o (@open_orders) {
             printf( "%s: %s Action: %s %0.3f @ \$%4.2f (value \$%4.2f) [order id: %s]\n", 
@@ -204,7 +205,7 @@ sub main {
         }
     } 
     elsif ($action eq "top") {
-        top();
+        top( @creds );
     }
 
     # UNKNOWN
@@ -214,6 +215,7 @@ sub main {
 }
 
 sub top {
+    my @creds = @_;
     my $top_counter = 0;
     my @products = $product ? ($product) : (@all_products);
     while(!$top_max || $top_counter++ < $top_max) {
@@ -264,6 +266,7 @@ sub top {
 }
 
 sub get_open_orders {
+    my @creds = @_;
     my $order = Finance::GDAX::API::Order->new( @creds );
     my $orders = $order->list;
     #print "$prog: orders " . ddump($orders) . "\n";
