@@ -1,15 +1,24 @@
 * Finance-CoinbasePro-API-CLI
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+This module provides a command-line interface to operate with
+Coinbase Pro.
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+Here's an example of Finance::CoinbasePro::API::CLI in action:
+
+    % export GDAX_API_KEY='api_key_here'
+    % export GDAX_API_SECRET='secret_here'
+    % export GDAX_PASSPHRASE='passphrase_here'
+    % bin/coinbasepro.pl quotes
+    coinbasepro.pl: quotes: {
+      ask      => 6235,
+      bid      => 6200.38,
+      price    => "6235.00000000",
+      size     => "2.00000000",
+      time     => "2018-10-15T22:25:18.561000Z",
+      trade_id => 2164766,
+      volume   => 58.52494937,
+    }
+
 
 
 INSTALLATION
