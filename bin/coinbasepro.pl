@@ -32,8 +32,8 @@ use Finance::CoinbasePro::API::CLI::Trade;
 my $prog = basename($0);
 my $verbose;
 my $dryrun;
-my @all_products = ("BTC-USD", "BCH-USD"); #"ETH-USD", "BTC-ETH");
-my $product = "BTC-USD";
+my @all_products = ("BTC-USD", "BCH-USD");   #"ETH-USD", "BTC-ETH");
+my $product = "BTC-USD";    # default product
 my $side = "";  # buy or sell
 my $price = 0;
 my $order;
@@ -76,7 +76,6 @@ sub main {
     }
 
     if ($action =~ /^(buy|sell)$/) {
-        #die "$prog: side must be 'buy' or 'sell', not '$side'\n" unless ($side =~ /^(buy|sell)$/);
         die "$prog: price must be non-zero, not '$price'\n"  unless $price;
         die "$prog: size must be non-zero, not '$size'\n"  unless $size;
     } 
