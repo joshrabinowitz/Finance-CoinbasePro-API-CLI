@@ -5,7 +5,10 @@ Coinbase Pro.
 
 Here's an example of Finance::CoinbasePro::API::CLI in action:
 
-     % bin/coinbasepro.pl  quotes
+    % export GDAX_API_KEY='api_key_here'
+    % export GDAX_API_SECRET='secret_here'
+    % export GDAX_PASSPHRASE='passphrase_here'
+    % bin/coinbasepro.pl quotes
     coinbasepro.pl: quotes: {
       ask      => 6235,
       bid      => 6200.38,
