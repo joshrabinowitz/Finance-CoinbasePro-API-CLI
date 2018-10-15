@@ -47,7 +47,8 @@ my $top_max = 1;
 sub Usage {
     "$prog (" . join("|", @allowed_actions) . ") \n" . 
     "   [--verbose] [--dryrun] [--product=BTC-USD] [--price=N] [--size=N] [--cancel]:\n" .
-    "   shows data from GDAX\n";
+    "   shows data from GDAX/Coinbase Pro\n";
+    "    for example: $prog quotes --product=BTC-USD  or  $prog products\n";
 }
 sub ddump {
     my $data = shift;
@@ -72,7 +73,7 @@ sub main {
 
     my $action = shift @ARGV;
     if (!$action) {
-        die "$prog: first param is action to perform (" . join("|", @allowed_actions) . ")\n";
+        die "$prog: first param is action to perform (" . join("|", @allowed_actions) . ")\n" . Usage();
     }
 
     if ($action =~ /^(buy|sell)$/) {
