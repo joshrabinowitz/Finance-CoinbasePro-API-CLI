@@ -5,5 +5,5 @@ perl:
 before_install:
     sudo apt-get install libdist-zilla-perl 
 
-before_script:
-    dzil build
+script:
+    dzil test
