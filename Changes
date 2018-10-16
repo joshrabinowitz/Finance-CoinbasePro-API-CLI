@@ -1,5 +1,11 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
-0.01    Date/time
+0.000_02    2018-10-16
+        Use Dist::Zilla::Plugin::Git*
+        
+0.000_01    2018-10-16
         First version, released on an unsuspecting world.
+        Basic command line access to GDAX.
+        Migrage to Dist::Zilla
+        Test on Travis-CI
 
