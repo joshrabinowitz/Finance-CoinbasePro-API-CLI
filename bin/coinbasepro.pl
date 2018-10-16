@@ -8,6 +8,7 @@ use File::Basename;
 use JSON qw(encode_json);
 use Data::Dump qw(dump);
 use List::Util qw(min max);
+
 use Finance::GDAX::API;
 use Finance::GDAX::API::Account;
 use Finance::GDAX::API::Quote;
@@ -21,6 +22,7 @@ use lib "$Bin/../lib";
 
 use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(getdatetime);
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw(get_product_currencies  format_usd  );
+use Finance::CoinbasePro::API::CLI::Util::Config qw(get_config_filename get_config);
 
 use Finance::CoinbasePro::API::CLI::Converter;
 use Finance::CoinbasePro::API::CLI::Value;
@@ -84,14 +86,12 @@ sub main {
     $SIG{__DIE__} = \&Carp::confess;
     $SIG{__WARN__} = \&Carp::confess;
 
-    #my @creds = ( key        => GDAXSetup::api_key(),
-    #              secret     => GDAXSetup::api_secret(),
-    #              passphrase => GDAXSetup::passphrase(), 
-    #              debug      => 0 );
-    my @creds = ( key        => $ENV{GDAX_API_KEY} || "",
-                  secret     => $ENV{GDAX_API_SECRET} || "",
-                  passphrase => $ENV{GDAX_API_PASSPHRASE} || "",
-                  debug      => 0 );
+    my $config_filename = get_config_filename();
+    my $config = $config_filename ? get_config($config_filename) : {};
+    my @creds = ( key        => $config->{coinbasepro}{api_key} || $ENV{GDAX_API_KEY},
+                  secret     => $config->{coinbasepro}{api_secret} || $ENV{GDAX_API_SECRET},
+                  passphrase => $config->{coinbasepro}{api_passphrase} || $ENV{GDAX_API_PASSPHRASE}, 
+                  debug => 0);
 
     ## ACCOUNTS
     if ($action eq "accounts") {
@@ -171,14 +171,9 @@ sub main {
     }
     # FILLS
     elsif ($action eq "fills") {
-        my $gdax_fills = Finance::GDAX::API::Fill->new(product_id => $product)->get;
-        #my $gdax_fills = Finance::GDAX::API::Fill->new(@creds)->get;
-        print "$prog: $action: " . ddump( $gdax_fills ) . "\n";
-        #$gdax_fills->product_id($product);
-        #my $fills = $gdax_fills->get;
-        #print "$prog: $action: " . ddump( $fills ) . "\n";
-        #my @jfills = map { Finance::CoinbasePro::API::CLI::Fill->new( %$_ ) } @$fills;
-        #for (@jfills) { print $_->to_str(), "\n"; }
+        my $gdax_fills = Finance::GDAX::API::Fill->new(product_id => $product);
+        my $fills = $gdax_fills->get;
+        print "$prog: $action: " . ddump( $fills ) . "\n";
     }
     # TICKER (not same as 'quotes')
     elsif ($action eq "ticker") {
@@ -270,7 +265,7 @@ sub get_open_orders {
     my @creds = @_;
     my $order = Finance::GDAX::API::Order->new( @creds );
     my $orders = $order->list;
-    #print "$prog: orders " . ddump($orders) . "\n";
+    print "$prog: orders " . ddump($orders) . "\n";
     my @open_orders = grep { $_->{status} eq "open" } @$orders;
     return @open_orders;
 }
