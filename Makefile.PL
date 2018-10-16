@@ -5,7 +5,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME             => 'Finance::CoinbasePro::API::CLI',
-    AUTHOR           => q{joshr <joshr@joshr.com>},
+    AUTHOR           => q{Josh Rabinowitz <joshr@joshr.com>},
     VERSION_FROM     => 'lib/Finance/CoinbasePro/API/CLI.pm',
     ABSTRACT_FROM    => 'lib/Finance/CoinbasePro/API/CLI.pm',
     LICENSE          => 'artistic_2',
@@ -29,6 +29,8 @@ WriteMakefile(
         'Number::Format'    => 0,
         'Pod::Autopod'      => 0,
         'Config::INI'       => 0,
+        'Mouse'             => 0,
+        'Time::Moment'      => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Finance-CoinbasePro-API-CLI-*' },
