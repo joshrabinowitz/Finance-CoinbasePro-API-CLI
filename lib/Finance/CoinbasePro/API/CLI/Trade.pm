@@ -1,7 +1,7 @@
 package Finance::CoinbasePro::API::CLI::Trade;
 # this knows about Finance::GDAX::Fill objects and can display them
 use Mouse;
-use Date::Parse qw(str2time);
+use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(my_str2time);
 use Data::Dump;
 
 use Finance::CoinbasePro::API::CLI::Value;
@@ -16,11 +16,12 @@ has 'trade_id' => (is=>'rw', isa=>'Int', required=>1);  # trade_id => 2164597,
 # returns a string 
 sub to_str {
     my $self = shift;
-    return Data::Dump::dump($self);
+    #return Data::Dump::dump($self);
+    return "Trade: $self->{time}: $self->{side} $self->{size} units at $self->{price}: trade_id $self->{trade_id}";
 }
 sub ago {
     my $date = shift;
-    return convert_seconds_to_human_time( time() - str2time( $date )  ) . " ago";
+    return convert_seconds_to_human_time( time() - my_str2time( $date )  ) . " ago";
 }
 
 1;

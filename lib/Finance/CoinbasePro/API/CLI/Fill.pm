@@ -2,9 +2,8 @@ package Finance::CoinbasePro::API::CLI::Fill;
 # this knows about Finance::GDAX::Fill objects and can display them
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw(format_currency);
-use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(getdatetime convert_seconds_to_human_time);
+use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(getdatetime convert_seconds_to_human_time my_str2time);
 use Finance::CoinbasePro::API::CLI::Value;
-use Date::Parse qw(str2time);
 
 has 'created_at' => (is=>'rw', isa=>'Str', required=>1 ); # created_at => "2017-10-31T20:34:14.675Z",
 has 'fee' => (is=>'rw', isa=>'Num', required=>1 ); # fee => 0.0044347376379036,
@@ -59,24 +58,26 @@ sub to_str {
         format_currency($self->{price}, $to_currency), 
         format_currency($offset, $to_currency) 
     );
-    #my $offset = $self->offset();
-    #my $str = sprintf( "%-12s: %-4s %-7s: %-13s at %10s, offset %12s",    #2018-06-10 14:31:30: buy BTC-USD: 0.07BTC at $6,740.24, offset -$471.82
-    #    reformat_datetime( $hashref->{created_at} ),
-    #    $hashref->{side}, # buy/sell
-    #    $hashref->{product_id}, 
-    #    format_currency($hashref->{size}, $from_currency),
-    #    format_currency($hashref->{price}, $to_currency), 
-    #    format_currency($offset->{price}, $offset->{currency}),
 
     return $str;
 }
 sub reformat_datetime {
     my $s = shift;
-    return getdatetime( str2time( $s ) );
+    print "$0: converting time $s\n";
+    
+    my $t ; #= my_str2time( $s );
+    if (! $t) {
+        $t = my_str2time( $s );
+       # my $dt = DateTime::Format::ISO8601->parse_datetime( $s );
+       # $t = $dt->datetime();
+    }
+
+    print " to epoch $t\n";
+    return getdatetime( $t );
 }
 sub ago {
     my $date = shift;
-    return convert_seconds_to_human_time( time() - str2time( $date )  ) . " ago";
+    return convert_seconds_to_human_time( time() - my_str2time( $date )  ) . " ago";
 }
 
 1;
