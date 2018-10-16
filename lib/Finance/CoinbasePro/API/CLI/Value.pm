@@ -1,7 +1,7 @@
 package Finance::CoinbasePro::API::CLI::Value;
 use Mouse;
 
-use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw( format_currency format_usd format_crypto format_crypto_with_usd );
+use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw( format_currency format_crypto_with_usd );
 
 has 'num'      => (is=>'rw', isa=>"Num", required=>1 );
 has 'currency' => (is=>'ro', isa=>"Str", required=>1 );

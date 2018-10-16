@@ -20,6 +20,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Finance::GDAX::API' => '0.09',
         'FindBin'             => 0,
+        'File::HomeDir'     => 0,
         'Mouse'             => 0,
         'Date::Parse'       => 0,
         'Data::Dump'        => 0,
