@@ -5,7 +5,6 @@ use strict;
 use warnings;
 use Getopt::Long; 
 use File::Basename;
-use JSON qw(encode_json);
 use Data::Dump qw(dump);
 use List::Util qw(min max);
 

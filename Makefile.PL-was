@@ -24,7 +24,6 @@ WriteMakefile(
         'Mouse'             => 0,
         'Date::Parse'       => 0,
         'Data::Dump'        => 0,
-        'JSON'              => 0,
         'List::Util'        => 0,
         'Number::Format'    => 0,
         'Pod::Autopod'      => 0,
