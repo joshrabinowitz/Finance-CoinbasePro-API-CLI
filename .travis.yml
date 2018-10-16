@@ -9,4 +9,4 @@ perl:
 # travis will run  'cpanm --quiet --installdeps --notest .', 
 # which will read META.yml. script below is the actual travis test
 script:
-    cpanm Dist::Zilla && rm -f Makefile.PL && dzil smoke
+    cpanm Dist::Zilla && dzil smoke
