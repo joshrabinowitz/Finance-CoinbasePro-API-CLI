@@ -3,7 +3,7 @@ perl:
   - "5.26"
 
 before_install:
-    apt-get install libdist-zilla-perl 
+    sudo apt-get install libdist-zilla-perl 
 
 before_script:
     dzil build
