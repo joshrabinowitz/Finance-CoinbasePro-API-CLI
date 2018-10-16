@@ -82,6 +82,8 @@ returns 19 character string like "2004-04-04 12:30:59"
 
 =head1 REQUIRES
 
+L<Time::Moment> 
+
 
 =head1 IMPLEMENTS
 
@@ -102,6 +104,13 @@ converts seconds to human-readable.
  $self->getdatetime();
 
 returns 19 character string like "2004-04-04 12:30:59"
+
+
+=head2 my_str2time
+
+ $self->my_str2time();
+
+like str2time, but uses Time::Piece to parse more date formats
 
 
 

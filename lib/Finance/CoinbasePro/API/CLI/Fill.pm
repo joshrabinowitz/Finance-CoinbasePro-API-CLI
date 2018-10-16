@@ -89,12 +89,13 @@ order_id => "45eb4883-ed4f-4df5-bf0d-fde87dad2339",
 price => "0.04804000",
 product_id => "ETH-BTC",
 profile_id => "18f975e3-6d43-4127-aca5-7d2c13b2ea31",
-settled => bless(do{\(my $o = 1)}, "JSON::PP::Boolean"),
+settled => 1,
 side => "sell",
 size => 30.77114653,
 trade_id => 1736807,
 usd_volume => undef,
 user_id => "513378df5210ff660900002b",
+
 
 
 
@@ -111,8 +112,6 @@ this knows about Finance::GDAX::Fill objects and can display them
 
 
 =head1 REQUIRES
-
-L<Date::Parse> 
 
 L<Finance::CoinbasePro::API::CLI::Value> 
 
