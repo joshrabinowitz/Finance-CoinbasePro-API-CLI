@@ -30,6 +30,7 @@ WriteMakefile(
         'Pod::Autopod'      => 0,
         'Config::INI'       => 0,
         'Mouse'             => 0,
+        'Time::Moment'      => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Finance-CoinbasePro-API-CLI-*' },
