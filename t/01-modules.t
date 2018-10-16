@@ -38,7 +38,7 @@ use Test::More;
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Fill' );
     my $fill = Finance::CoinbasePro::API::CLI::Fill->new( 
-        created_at => "2017-09-31T08:34:14.605Z",
+        created_at => "2017-09-17T08:34:14.324Z",
         fee => 0.0044311111111111,
         liquidity => "T",
         order_id => "4bbbbbbb-ed4f-4df5-bf0d-faaaaaaaaaaa",
@@ -52,14 +52,29 @@ use Test::More;
         usd_volume => undef,
         user_id => "51111111111111111111111z",
     );
+    my $str = $fill->to_str();  
+    is( $str, "2017-09-17 04:34:14: sell ETH-BTC: 30.1111ETH at 0.0480BTC, offset 1.4465BTC", "filled trade to_str()" );
+        # this time is 4 hours off because above is in UTC and here we're showing time in NYC time. 
 }
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Trade' );
+    my $trade = Finance::CoinbasePro::API::CLI::Trade->new(   
+        price    => "6200.00000000",
+        side     => "buy",
+        size     => "0.02000000",
+        time     => "2017-10-11T13:54:51.834Z",
+        trade_id => 2111111,
+    );
+    is( $trade->to_str(), "Trade: 2017-10-11T13:54:51.834Z: buy 0.02000000 units at 6200.00000000: trade_id 2111111", "trade to str" );
 }
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Value' );
+    my $btc1 = Finance::CoinbasePro::API::CLI::Value->new( num=>1, currency=>"BTC" );
+    is( $btc1->to_str(), "1.0000BTC", "value: 1BTC as string" );
+    my $usd1 = Finance::CoinbasePro::API::CLI::Value->new( num=>1, currency=>"USD" );
+    is( $usd1->to_str(), '$1.00', "value: 1USD as string" );
 }
 
 done_testing();
