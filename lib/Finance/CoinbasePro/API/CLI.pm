@@ -10,11 +10,11 @@ Finance::CoinbasePro::API::CLI - The great new Finance::CoinbasePro::API::CLI!
 
 =head1 VERSION
 
-Version 0.01
+Version 0.000_01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.000_01';
 
 
 =head1 SYNOPSIS
