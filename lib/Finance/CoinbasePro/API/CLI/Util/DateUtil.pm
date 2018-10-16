@@ -1,7 +1,8 @@
 package Finance::CoinbasePro::API::CLI::Util::DateUtil;
 
 use base qw(Exporter);
-our @EXPORT_OK = qw( getdatetime convert_seconds_to_human_time );
+our @EXPORT_OK = qw( getdatetime convert_seconds_to_human_time my_str2time );
+use Time::Moment;
 
 # returns 19 character string like "2004-04-04 12:30:59"
 sub getdatetime {
@@ -52,6 +53,14 @@ sub _convert_units_to_human_size {
         }
     }
     return int($units);
+}
+
+# like str2time, but uses Time::Piece to parse more date formats
+sub my_str2time {
+    my $s = shift;
+    my $tm = Time::Moment->from_string($s);
+    my $t = $tm->epoch();
+    return $t;
 }
 
 
