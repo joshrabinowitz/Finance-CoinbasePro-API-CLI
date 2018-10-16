@@ -19,7 +19,7 @@ WriteMakefile(
     },
     PREREQ_PM => {
         'Finance::GDAX::API' => '0.09',
-        'FindBin'             => 0,
+        'FindBin'           => 0,
         'File::HomeDir'     => 0,
         'Mouse'             => 0,
         'Date::Parse'       => 0,
@@ -27,6 +27,8 @@ WriteMakefile(
         'JSON'              => 0,
         'List::Util'        => 0,
         'Number::Format'    => 0,
+        'Pod::Autopod'      => 0,
+        'Config::INI'       => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Finance-CoinbasePro-API-CLI-*' },

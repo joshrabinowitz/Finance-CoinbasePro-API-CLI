@@ -5,9 +5,12 @@ Coinbase Pro.
 
 Here's an example of Finance::CoinbasePro::API::CLI in action:
 
-    % export GDAX_API_KEY='api_key_here'
-    % export GDAX_API_SECRET='secret_here'
-    % export GDAX_PASSPHRASE='passphrase_here'
+    % cat ~/.coinbasepro
+    [coinbasepro]
+    api_key = YOURKEYHERE
+    api_secret = YOURSECRETHERE
+    api_passphrase = YOURPASSPHRASEHERE
+
     % bin/coinbasepro.pl quotes
     coinbasepro.pl: quotes: {
       ask      => 6235,
@@ -18,6 +21,8 @@ Here's an example of Finance::CoinbasePro::API::CLI in action:
       trade_id => 2164766,
       volume   => 58.52494937,
     }
+
+    (TODO- rewrite output above)
 
 
 
@@ -40,7 +45,7 @@ perldoc command.
 
 LICENSE AND COPYRIGHT
 
-Copyright (C) 2018 joshr
+Copyright (C) 2018 Josh Rabinowitz
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
