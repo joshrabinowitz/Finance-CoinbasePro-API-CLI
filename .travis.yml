@@ -2,8 +2,11 @@ language: perl
 perl:
   - "5.26"
 
+# install dzil using ubunty packages
 before_install:
     sudo apt-get install libdist-zilla-perl 
 
+# travis will run  'cpanm --quiet --installdeps --notest .', 
+# which will read META.yml. script below is the actual travis test
 script:
     dzil test
