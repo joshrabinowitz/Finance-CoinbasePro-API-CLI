@@ -13,7 +13,7 @@ has 'order_id' => (is=>'rw', isa=>'Str', required=>1 ); # order_id => "45eb4883-
 has 'price' => (is=>'rw', isa=>'Num', required=>1 ); # price => "0.04804000",
 has 'product_id' => (is=>'rw', isa=>'Str', required=>1 ); # product_id => "ETH-BTC",
 has 'profile_id' => (is=>'rw', isa=>'Str', required=>1 ); # profile_id => "18f975e3-6d43-4127-aca5-7d2c13b2ea31",
-has 'settled' => (is=>'rw', isa=>'Bool', required=>1 ); # settled => 'fix',
+has 'settled' => (is=>'rw', isa=>'Bool', required=>1 ); # settled => '0',
 has 'side' => (is=>'rw', isa=>'Str', required=>1 ); # side => "sell",
 has 'size' => (is=>'rw', isa=>'Num', required=>1 ); # size => 30.77114653,
 has 'trade_id' => (is=>'rw', isa=>'Num', required=>1 ); # trade_id => 1736807,

@@ -40,16 +40,4 @@ sub to_str_with_usd {
     return $str;
 }
 
-#    if ($account->{str_with_usdbalance} > 0 || $account->{hold} > 0) {
-#        printf( "%s: %s", 
-#            $account->{currency}, 
-#            $account->{currency} eq "USD" ? format_usd($account->{balance}) : format_crypto_with_usd( $account->{balance}, "BTC", $ticker->{price} ) 
-#        );
-#        if ($account->{hold} > 0) {
-#            printf( " (held: %04.08f)", $account->{hold} );
-#        }
-#        printf( " " );
-#    }
-#}
-    
 1;
