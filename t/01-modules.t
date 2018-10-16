@@ -1,4 +1,5 @@
 use Test::More;
+$ENV{TIMEZONE} = "EST";
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
