@@ -40,6 +40,7 @@ You can find documentation for this module with the perldoc command.
 
     perldoc Finance::CoinbasePro::API::CLI
 
+=over 4
 
 =item * Search CPAN
 
