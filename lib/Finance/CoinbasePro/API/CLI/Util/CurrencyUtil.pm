@@ -5,6 +5,7 @@ our @EXPORT_OK = qw( get_product_currencies
         format_crypto format_crypto_exact 
         format_crypto_with_usd  format_usd format_currency );
 
+use POSIX qw( ceil floor );
 # our global number formatter.
 use Number::Format;
 my $formatter = Number::Format->new( -neg_format=>'-x' );
@@ -116,7 +117,7 @@ sub format_fiat_currency {
     }
 }
 
-
+sub _log10 { my $n = shift; return 2 unless $n; return log($n)/log(10); }
 
 1;
 
