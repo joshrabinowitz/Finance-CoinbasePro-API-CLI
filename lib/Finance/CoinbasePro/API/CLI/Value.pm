@@ -37,7 +37,7 @@ sub subtract {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Value
+Finance::CoinbasePro::API::CLI::Value - stores a value and a currency
 
 
 =head1 DESCRIPTION

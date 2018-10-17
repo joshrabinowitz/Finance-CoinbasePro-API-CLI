@@ -104,7 +104,7 @@ user_id => "513378df5210ff660900002b",
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Fill
+Finance::CoinbasePro::API::CLI::Fill - CoinbasePro Filled Trade Object
 
 
 =head1 DESCRIPTION

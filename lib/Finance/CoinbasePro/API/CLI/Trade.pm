@@ -33,7 +33,7 @@ sub ago {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Trade
+Finance::CoinbasePro::API::CLI::Trade - CoinbasePro Trade Object
 
 
 =head1 DESCRIPTION

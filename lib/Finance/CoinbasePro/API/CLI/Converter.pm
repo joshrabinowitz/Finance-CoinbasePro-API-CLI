@@ -60,7 +60,7 @@ sub _convert_value_with_factor {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Converter
+Finance::CoinbasePro::API::CLI::Converter - converts between currencies
 
 
 =head1 DESCRIPTION

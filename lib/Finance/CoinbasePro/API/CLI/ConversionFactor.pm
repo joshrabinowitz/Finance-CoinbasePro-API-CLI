@@ -14,7 +14,7 @@ has 'factor'         => ( is=>'rw', isa=>"Num", required=>1 );
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::ConversionFactor
+Finance::CoinbasePro::API::CLI::ConversionFactor - stores a single currency->currency conversion factor
 
 
 =head1 DESCRIPTION

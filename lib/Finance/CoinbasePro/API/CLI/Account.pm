@@ -49,7 +49,7 @@ sub to_str_with_usd {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Account
+Finance::CoinbasePro::API::CLI::Account - CoinbasePro Account Object
 
 
 =head1 DESCRIPTION
