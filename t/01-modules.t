@@ -1,7 +1,9 @@
 use Test::More;
 
-#$ENV{TIMEZONE} = "EST";
-$ENV{TZ} = "UTC";
+$ENV{TZ} = "UTC";   # testing occurs in UTC
+
+$ENV{LC_ALL} = "en_US.UTF-8";   
+# testing occurs in US english for now, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );

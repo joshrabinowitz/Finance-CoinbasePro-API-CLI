@@ -103,6 +103,7 @@ sub format_fiat_currency {
     else {
         $val ||= 0;
 
+        # choose the precision
         unless ( defined($prec) ) {
             if ( abs($val) > 1000 ) {
                 $prec = 0;
