@@ -1,0 +1,8 @@
+TODO:
+
+* add CONTRIBUTING or CONTRIBUTING.md as per
+  https://metacpan.org/contributing-to/Finance-CoinbasePro-API-CLI
+
+* flesh out actions in coinbasepro.pl
+
+* Use App::Cmd?
