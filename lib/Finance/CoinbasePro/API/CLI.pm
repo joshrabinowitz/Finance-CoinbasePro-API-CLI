@@ -1,4 +1,4 @@
-package Finance::CoinbasePro::API::CLI;
+package Finance::CoinbasePro::API::CLI; # Command-line interface to GDAX / Coinbase Pro
 
 use 5.006;
 use strict;
@@ -90,6 +90,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =cut
 
 1; # End of Finance::CoinbasePro::API::CLI
+
 
 
 

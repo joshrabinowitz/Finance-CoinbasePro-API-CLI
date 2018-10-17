@@ -1,4 +1,4 @@
-package Finance::CoinbasePro::API::CLI::Util::DateUtil;
+package Finance::CoinbasePro::API::CLI::Util::DateUtil; # date/time conversion utilities
 use strict;
 
 use base qw(Exporter);
@@ -67,6 +67,7 @@ sub my_str2time {
 
 
 1;
+
 
 
 

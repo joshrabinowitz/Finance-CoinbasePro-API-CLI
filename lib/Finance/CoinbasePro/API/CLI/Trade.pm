@@ -1,5 +1,4 @@
-package Finance::CoinbasePro::API::CLI::Trade;
-# this knows about Finance::GDAX::Fill objects and can display them
+package Finance::CoinbasePro::API::CLI::Trade; # this knows about Finance::GDAX::Fill objects and can display them
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(my_str2time);
 use Data::Dump;
@@ -25,6 +24,7 @@ sub ago {
 }
 
 1;
+
 
 
 

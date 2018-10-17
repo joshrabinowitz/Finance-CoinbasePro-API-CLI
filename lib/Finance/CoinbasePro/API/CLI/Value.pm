@@ -1,4 +1,4 @@
-package Finance::CoinbasePro::API::CLI::Value;
+package Finance::CoinbasePro::API::CLI::Value; # stores a value and a currency
 use Mouse;
 
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw( format_currency format_crypto_with_usd );
@@ -29,6 +29,7 @@ sub subtract {
 
 
 1;
+
 
 
 
