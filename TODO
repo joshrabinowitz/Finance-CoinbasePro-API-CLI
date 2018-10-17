@@ -1,0 +1,5 @@
+TODO:
+
+* flesh out actions in coinbasepro.pl
+
+* Consider using App::Cmd
