@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.003    2018-10-17
+        Changes for tests
+
 0.002    2018-10-17
         Fix git tagging
 
