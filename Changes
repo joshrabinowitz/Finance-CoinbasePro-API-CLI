@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.000_03    2018-10-16
+        Pod improvements
+        
 0.000_02    2018-10-16
         Use Dist::Zilla::Plugin::Git*
         
