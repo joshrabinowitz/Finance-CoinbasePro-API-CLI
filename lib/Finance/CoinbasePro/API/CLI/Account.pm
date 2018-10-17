@@ -1,5 +1,4 @@
-package Finance::CoinbasePro::API::CLI::Account;
-# this knows about Finance::GDAX::Fill objects and can display them
+package Finance::CoinbasePro::API::CLI::Account; # this knows about Finance::GDAX::Fill objects and can display them
 use Mouse;
 use Data::Dump qw(dump);
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw(format_usd format_currency );
