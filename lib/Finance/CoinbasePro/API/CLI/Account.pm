@@ -12,13 +12,6 @@ has 'hold'       => ( is => 'rw', isa => "Num", required => 1 );
 has 'id'         => ( is => 'rw', isa => "Str", default  => '' );
 has 'profile_id' => ( is => 'rw', isa => "Str", default  => '' );
 
-sub balance {
-    my $self = shift;
-    return Finance::CoinbasePro::API::CLI::Value->new(
-        num      => $self->{balance},
-        currency => $self->{currency}
-    );
-}
 
 sub hold {
     my $self = shift;
@@ -43,7 +36,7 @@ sub to_str_with_usd {
     my $str = $self->to_str();
     if ( $self->{currency} ne "USD" ) {
         $str .=
-          " " . format_usd( $self->{balance}, $self->{currency} . $per_usd );
+          " " . format_usd( $self->balance, $self->currency . $per_usd );
     }
     return $str;
 }

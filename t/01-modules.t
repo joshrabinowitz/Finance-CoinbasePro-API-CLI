@@ -1,9 +1,15 @@
 use Test::More;
-
-$ENV{TZ} = "UTC";   # testing occurs in UTC
+use POSIX qw(tzset);
 
 $ENV{LC_ALL} = "en_US.UTF-8";   
-# testing occurs in US english for now, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
+# testing occurs in US english, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
+
+$ENV{TZ} = "UTC";   # testing occurs in UTC
+tzset();            # tzset 'is identical to the C function "tzset()" for setting the
+                    # current timezone based on the environment variable "TZ", to be
+                    # used by "ctime()", "localtime()", "mktime()", and "strftime()"
+                    # functions.'
+
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
