@@ -20,15 +20,16 @@ sub add {
 }
 
 =for comment
-#sub subtract {
-#    my ($self, $v) = @_;
-#    die "$0: can't subtract $self->{currency} and $v->{currency}\n" unless ($self->currency eq $v->currency);
-#    $self->num( $self->num - $v->num );
-#}
+sub subtract {
+    my ($self, $v) = @_;
+    die "$0: can't subtract $self->{currency} and $v->{currency}\n" unless ($self->currency eq $v->currency);
+    $self->num( $self->num - $v->num );
+}
 =cut
 
 
 1;
+
 
 
 
@@ -41,11 +42,7 @@ Finance::CoinbasePro::API::CLI::Value
 
 =head1 DESCRIPTION
 
-sub subtract {
-my ($self, $v) = @_;
-die "$0: can't subtract $self->{currency} and $v->{currency}\n" unless ($self->currency eq $v->currency);
-$self->num( $self->num - $v->num );
-}
+a tradable value - a number and a currency
 
 
 =head1 REQUIRES
