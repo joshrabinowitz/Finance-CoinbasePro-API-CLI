@@ -1,4 +1,5 @@
 package Finance::CoinbasePro::API::CLI::Util::Config;
+use strict;
 
 use File::HomeDir;       # my $home     = File::HomeDir->my_home;
 use File::Spec::Functions qw(catfile);

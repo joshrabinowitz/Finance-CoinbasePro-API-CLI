@@ -1,4 +1,5 @@
 package Finance::CoinbasePro::API::CLI::Util::DateUtil;
+use strict;
 
 use base qw(Exporter);
 our @EXPORT_OK = qw( getdatetime convert_seconds_to_human_time my_str2time );

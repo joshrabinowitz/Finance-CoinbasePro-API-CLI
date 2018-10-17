@@ -1,4 +1,5 @@
 package Finance::CoinbasePro::API::CLI::Util::CurrencyUtil;
+use strict;
 
 use base qw(Exporter);
 our @EXPORT_OK = qw( get_product_currencies 
