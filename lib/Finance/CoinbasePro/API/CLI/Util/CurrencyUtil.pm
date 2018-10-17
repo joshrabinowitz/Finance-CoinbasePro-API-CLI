@@ -129,7 +129,7 @@ sub _log10 { my $n = shift; return 2 unless $n; return log($n)/log(10); }
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Util::CurrencyUtil
+Finance::CoinbasePro::API::CLI::Util::CurrencyUtil - formats values in currencies for display
 
 
 =head1 DESCRIPTION

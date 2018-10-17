@@ -74,7 +74,7 @@ sub my_str2time {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Util::DateUtil
+Finance::CoinbasePro::API::CLI::Util::DateUtil - date/time conversion utilities
 
 
 =head1 DESCRIPTION

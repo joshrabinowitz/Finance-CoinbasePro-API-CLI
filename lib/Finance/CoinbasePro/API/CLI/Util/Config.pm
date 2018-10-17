@@ -30,7 +30,7 @@ sub get_config {
 
 =head1 NAME
 
-Finance::CoinbasePro::API::CLI::Util::Config
+Finance::CoinbasePro::API::CLI::Util::Config - finds and reads config with api key, secret, passphrase
 
 
 =head1 DESCRIPTION
