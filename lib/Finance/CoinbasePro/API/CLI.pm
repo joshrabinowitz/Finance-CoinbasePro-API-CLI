@@ -8,10 +8,6 @@ use warnings;
 
 Finance::CoinbasePro::API::CLI - Command-line interface to GDAX / Coinbase Pro
 
-=head1 VERSION
-
-Version 0.000_03
-
 =cut
 
 our $VERSION = '0.000_03';
