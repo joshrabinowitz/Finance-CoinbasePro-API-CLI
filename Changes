@@ -1,7 +1,10 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.008    2018-10-17
+        Fix testing in UTC on Win32.
+
 0.007    2018-10-17
-        Fix tests of number formatting using non-US locales.
+        Fix tests of number formatting under non-US locales.
 
 0.006    2018-10-17
         Add META.json and cpanfile to dist.
