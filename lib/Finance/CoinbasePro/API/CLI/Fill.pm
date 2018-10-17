@@ -155,7 +155,5 @@ L<Mouse>
 
 returns a string like '2018-06-13 11:14:11: buy BTC-USD: 10.00000000 BTC at $7,000.00, cost $70,000.00'
 
-
-
 =cut
 

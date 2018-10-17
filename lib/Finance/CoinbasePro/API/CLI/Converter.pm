@@ -87,7 +87,5 @@ L<Mouse>
 my $converter = Finance::CoinbasePro::API::CLI::Converter->new( conversions=>[{from=>"BTC", to=>"USD", factor=>7884}] );
 my $converted = $converter->convert( Finance::CoinbasePro::API::CLI:Value->new( num=>10, currency=>"BTC" ), "USD" );
 
-
-
 =cut
 

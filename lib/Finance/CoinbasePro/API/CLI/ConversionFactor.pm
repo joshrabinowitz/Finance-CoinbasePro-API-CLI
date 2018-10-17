@@ -29,6 +29,5 @@ L<Mouse>
 
 =head1 METHODS
 
-
 =cut
 

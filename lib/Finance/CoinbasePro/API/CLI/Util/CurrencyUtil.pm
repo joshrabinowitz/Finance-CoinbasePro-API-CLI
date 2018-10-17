@@ -179,6 +179,5 @@ L<Exporter>
 
  $self->get_product_currencies();
 
-
 =cut
 

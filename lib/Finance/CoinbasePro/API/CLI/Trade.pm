@@ -66,7 +66,5 @@ L<Mouse>
 
 returns a string
 
-
-
 =cut
 

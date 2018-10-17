@@ -64,6 +64,5 @@ L<Exporter>
 
  $self->get_config_filename();
 
-
 =cut
 

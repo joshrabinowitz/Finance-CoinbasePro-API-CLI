@@ -70,6 +70,5 @@ L<Mouse>
 
  to_str_with_usd();
 
-
 =cut
 

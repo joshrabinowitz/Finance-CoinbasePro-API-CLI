@@ -114,6 +114,5 @@ L<5.006>
 
 =head1 METHODS
 
-
 =cut
 

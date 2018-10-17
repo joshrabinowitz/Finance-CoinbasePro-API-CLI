@@ -114,7 +114,5 @@ returns 19 character string like "2004-04-04 12:30:59"
 
 like str2time, but uses Time::Piece to parse more date formats
 
-
-
 =cut
 
