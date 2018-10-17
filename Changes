@@ -1,5 +1,11 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.005    2018-10-17
+        Code fixes.
+        Add CONTRIBUTING.md and TODO.
+        Add 'use warnings' to non-Mouse modules. 
+        Changes for perlcritic. Run perltidy on code.
+
 0.004    2018-10-17
         Add META.yml to dist tarball
 
