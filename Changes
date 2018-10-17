@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.004    2018-10-17
+        Add META.yml to dist tarball
+
 0.003    2018-10-17
         Changes for tests
 
