@@ -1,5 +1,6 @@
 package Finance::CoinbasePro::API::CLI::Util::CurrencyUtil; # formats values in currencies for display
 use strict;
+use warnings;
 
 use base qw(Exporter);
 our @EXPORT_OK = qw( get_product_currencies 
