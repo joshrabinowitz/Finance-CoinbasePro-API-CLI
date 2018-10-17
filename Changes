@@ -1,53 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
-0.000_16    2018-10-16
-        Dzil
-
-0.000_15    2018-10-16
-        Dzil
-
-0.000_14    2018-10-16
-        Dzil
-
-0.000_13    2018-10-16
-        Dzil
-
-0.000_12    2018-10-16
-        Dzil
-
-0.000_11    2018-10-16
-        Dzil
-
-0.000_10    2018-10-16
-        Dzil
-
-0.000_09    2018-10-16
-        Dzil
-
-0.000_08    2018-10-16
-        Dzil
-
-0.000_07    2018-10-16
-        Dzil
-
-0.000_06    2018-10-16
-        Dzil
-
-0.000_05    2018-10-16
-        Dzil
-
-0.000_04    2018-10-16
-        Pod and dzil improvements 
-        
-0.000_03    2018-10-16
-        Pod and dzil improvements 
-        
-0.000_02    2018-10-16
-        Use Dist::Zilla::Plugin::Git*
-        
-0.000_01    2018-10-16
+0.001    2018-10-17
         First version, released on an unsuspecting world.
         Basic command line access to GDAX.
-        Migrage to Dist::Zilla
+        Use Dist::Zilla
         Test on Travis-CI
 
