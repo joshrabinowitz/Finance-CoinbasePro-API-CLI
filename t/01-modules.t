@@ -1,7 +1,7 @@
 use Test::More;
 
 #$ENV{TIMEZONE} = "EST";
-$ENV{TZ} = "US/Eastern";
+$ENV{TZ} = "UTC";
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
@@ -56,7 +56,7 @@ $ENV{TZ} = "US/Eastern";
         user_id => "51111111111111111111111z",
     );
     my $str = $fill->to_str();  
-    is( $str, "2017-09-17 04:34:14: sell ETH-BTC: 30.1111ETH at 0.0480BTC, offset 1.4465BTC", "filled trade to_str()" );
+    is( $str, "2017-09-17 08:34:14: sell ETH-BTC: 30.1111ETH at 0.0480BTC, offset 1.4465BTC", "filled trade to_str()" );
         # this time is 4 hours off because above is in UTC and here we're showing time in NYC time. 
 }
 
