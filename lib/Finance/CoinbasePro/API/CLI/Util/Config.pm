@@ -1,4 +1,4 @@
-package Finance::CoinbasePro::API::CLI::Util::Config;
+package Finance::CoinbasePro::API::CLI::Util::Config; # finds and reads config with api key, secret, passphrase
 use strict;
 
 use File::HomeDir;       # my $home     = File::HomeDir->my_home;
@@ -22,6 +22,8 @@ sub get_config {
 }
 
 1;
+
+
 
 
 
@@ -63,6 +65,7 @@ L<Exporter>
 =head2 get_config_filename
 
  $self->get_config_filename();
+
 
 =cut
 
