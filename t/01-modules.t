@@ -1,17 +1,12 @@
 use Test::More;
 use POSIX qw(setlocale);
+use Time::Piece;     # for _tzset()
 
+$ENV{TZ} = "UTC";       # testing occurs in UTC
+Time::Piece::_tzset();  # see Time::Piece perldocs on TZ in Win32
 
-$ENV{TZ} = "UTC";   # testing occurs in UTC
-#tzset();            # tzset 'is identical to the C function "tzset()" for setting the
-                    # current timezone based on the environment variable "TZ", to be
-                    # used by "ctime()", "localtime()", "mktime()", and "strftime()"
-                    # functions.'
-
-#$ENV{LC_ALL} = "en_US.UTF-8";   
-my$loc = setlocale( LC_ALL, "C" );
+my $loc = setlocale( LC_ALL, "C" );
 # testing occurs in 'C' english, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
-
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
