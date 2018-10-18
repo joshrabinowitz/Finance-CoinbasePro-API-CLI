@@ -13,11 +13,6 @@ has 'id'         => ( is => 'rw', isa => "Str", default  => '' );
 has 'profile_id' => ( is => 'rw', isa => "Str", default  => '' );
 
 
-sub hold {
-    my $self = shift;
-    return $self->{hold} || 0;
-}
-
 sub to_str {
     my $self    = shift;
     my $balance = $self->balance();
