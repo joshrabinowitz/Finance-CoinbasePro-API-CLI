@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.009    2018-10-18
+        Fix testing in C Locale on Win32.
+
 0.008    2018-10-17
         Fix testing in UTC on Win32.
 

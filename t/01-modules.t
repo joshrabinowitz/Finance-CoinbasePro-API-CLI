@@ -1,14 +1,16 @@
 use Test::More;
-use POSIX qw(tzset);
+use POSIX qw(setlocale);
 
-$ENV{LC_ALL} = "en_US.UTF-8";   
-# testing occurs in US english, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
 
 $ENV{TZ} = "UTC";   # testing occurs in UTC
-tzset();            # tzset 'is identical to the C function "tzset()" for setting the
+#tzset();            # tzset 'is identical to the C function "tzset()" for setting the
                     # current timezone based on the environment variable "TZ", to be
                     # used by "ctime()", "localtime()", "mktime()", and "strftime()"
                     # functions.'
+
+#$ENV{LC_ALL} = "en_US.UTF-8";   
+my$loc = setlocale( LC_ALL, "C" );
+# testing occurs in 'C' english, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
 
 
 {
