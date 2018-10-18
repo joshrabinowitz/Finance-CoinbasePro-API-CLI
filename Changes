@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.012    2018-10-18
+        Add dependency.
+
 0.011    2018-10-18
         Fix for testing in UTC on Win32.
 
