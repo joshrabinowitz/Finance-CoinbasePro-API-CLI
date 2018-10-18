@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.011    2018-10-18
+        Fix for testing in UTC on Win32.
+
 0.010    2018-10-18
         Remove method/attribute with same name in Account.pm.
 
