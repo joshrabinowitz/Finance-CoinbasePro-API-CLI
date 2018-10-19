@@ -11,13 +11,13 @@ Finance::CoinbasePro::API::CLI - Command-line interface to GDAX / Coinbase Pro
 
 =cut
 
-our $VERSION = '0.012';
+our $VERSION = '0.013';
 
 =head1 SYNOPSIS
 
 Provides a command-line interface to Coinbase Pro (no longer GDAX).
 
-    % bin/coinbasepro.pl
+    % script/coinbasepro.pl
     coinbasepro.pl: first param is action to perform (top|buy|sell|products|accounts|orders|quotes|trades|fills|cancel|cancelall)
     coinbasepro.pl (top|buy|sell|products|accounts|orders|quotes|trades|fills|cancel|cancelall)
        [--verbose] [--dryrun] [--product=BTC-USD] [--price=N] [--size=N] [--cancel]:

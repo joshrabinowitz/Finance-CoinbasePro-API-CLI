@@ -1,7 +1,10 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.013    2018-10-19
+        Move coinbasepro.pl to script/.
+
 0.012    2018-10-18
-        Add dependency.
+        Add dependency.t
 
 0.011    2018-10-18
         Fix for testing in UTC on Win32.
