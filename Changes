@@ -1,7 +1,9 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.015    2018-10-20
+        Have coinbasepro.pl script installed at installtime.
+
 0.014    2018-10-20
-        Install script coinbasepro.pl where perl scripts go.
         Fix thousands seperator when LANG is en_US.UTF-8 and LC_ALL has different thousands
         seperator (like de_DE.UTF-8)
         (See https://www.cpantesters.org/cpan/report/b04018fa-d438-11e8-a8d1-2867d896f7be ).

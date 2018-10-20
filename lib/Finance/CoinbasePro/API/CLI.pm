@@ -11,7 +11,7 @@ Finance::CoinbasePro::API::CLI - Command-line interface to GDAX / Coinbase Pro
 
 =cut
 
-our $VERSION = '0.014';
+our $VERSION = '0.015';
 
 =head1 SYNOPSIS
 
