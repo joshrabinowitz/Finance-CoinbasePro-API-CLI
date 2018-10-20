@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Fill
 
 use strict;
 use warnings;
-our $VERSION = '0.015';
+our $VERSION = '0.016';
 
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil qw(format_currency);

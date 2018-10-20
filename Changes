@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.016    2018-10-20
+        Put $VERSION in every module.
+
 0.015    2018-10-20
         Have coinbasepro.pl script installed at installtime.
 

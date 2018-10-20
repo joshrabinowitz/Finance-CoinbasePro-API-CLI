@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::Config
 
 use strict;
 use warnings;
-our $VERSION = '0.015';
+our $VERSION = '0.016';
 
 
 use File::HomeDir;    # my $home     = File::HomeDir->my_home;
