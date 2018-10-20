@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.017    2018-10-20
+        Update example in README.md, add pretty-printing of Ticker.
+
 0.016    2018-10-20
         Put $VERSION in every module.
 

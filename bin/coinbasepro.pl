@@ -30,11 +30,12 @@ use Finance::CoinbasePro::API::CLI::Value;
 use Finance::CoinbasePro::API::CLI::Fill;
 use Finance::CoinbasePro::API::CLI::Account;
 use Finance::CoinbasePro::API::CLI::Trade;
+use Finance::CoinbasePro::API::CLI::Ticker;
 
 my $prog = basename($0);
 my $verbose;
 my $dryrun;
-my @all_products = ( "BTC-USD", "BCH-USD" );    #"ETH-USD", "BTC-ETH");
+my @all_products = ( "BTC-USD", "BCH-USD" );    # list can be longer, see 'coinbasepro.pl products'
 my $product      = "BTC-USD";                   # default product
 my $side         = "";                          # buy or sell
 my $price        = 0;
@@ -42,7 +43,7 @@ my $order;
 my $size = 0;
 my $id   = 0;                                   # id to act upon for cancel
 my @allowed_actions =
-  qw( top buy sell products accounts orders quotes trades fills cancel cancelall );
+  qw( top buy sell products accounts orders ticker trades fills cancel cancelall );
 my $sleep   = 1;
 my $top_max = 1;
 
@@ -52,7 +53,7 @@ sub Usage {
       . join( "|", @allowed_actions ) . ") \n"
       . "   [--verbose] [--dryrun] [--product=BTC-USD] [--price=N] [--size=N] [--cancel]:\n"
       . "   shows data from GDAX/Coinbase Pro\n"
-      . "    for example: $prog quotes --product=BTC-USD  or  $prog products\n";
+      . "    for example: $prog ticker --product=BTC-USD  or  $prog products\n";
 }
 
 sub ddump {
@@ -101,6 +102,7 @@ sub main {
           || $ENV{GDAX_API_PASSPHRASE},
         debug => 0
     );
+    my @products    = $product ? ($product) : (@all_products);
 
     ## ACCOUNTS
     if ( $action eq "accounts" ) {
@@ -184,23 +186,25 @@ sub main {
           )
         {
             my $orders = $order->cancel_all;
-            if ( $order->error ) { die "Error: " . $order->error }
+            if ( $order->error ) { die "$prog: Error cancelling all orders: " . $order->error }
         }
         else {
             die "$prog: Not cancelling all orders\n";
         }
     }
 
-    # QUOTES
-    elsif ( $action eq "quotes" ) {
-        my $quote = Finance::GDAX::API::Quote->new( product => $product )->get;
-        print "$prog: $action: " . ddump($quote) . "\n";
-    }
+    # QUOTES. Removed because this returns weird data like
+    # { ask => 4999.99, bid => 3564.29, price => "6000.00000000", size => "0.01110000", 
+    #  time => "2018-09-21T11:21:06.161000Z", trade_id => 11111, volume => 29.11111111, }
+    #elsif ( $action eq "quotes" ) {
+    #    my $quote = Finance::GDAX::API::Quote->new( product => $product )->get;
+    #    print "$prog: $action: " . ddump($quote) . "\n";
+    #}
 
     # TRADES
     elsif ( $action eq "trades" ) {
         my $gproduct = Finance::GDAX::API::Product->new;
-        my @products = $product ? ($product) : (@all_products);
+        my @products = $product ? ($product) : (@products);
         for my $a_product (@products) {
             my $trades = $gproduct->trades($a_product);
             my @jtrades =
@@ -224,9 +228,9 @@ sub main {
     # TICKER (not same as 'quotes')
     elsif ( $action eq "ticker" ) {
         my $gproduct = Finance::GDAX::API::Product->new(@creds);
-        for my $a_product (@all_products) {
-            my $ticker = $gproduct->ticker($a_product);
-            print "$prog: $action: " . ddump($ticker) . "\n";
+        for my $a_product (@products) {
+            my $ticker = Finance::CoinbasePro::API::CLI::Ticker->new( $gproduct->ticker($a_product) );
+            print "$prog: $action: $a_product: " . $ticker->to_str() . "\n";
         }
     }
 
@@ -254,7 +258,7 @@ sub main {
             }
         }
         else {
-            die "$prog: Not selling\n";
+            print "$prog: Not selling\n";
         }
     }
     elsif ( $action eq "top" ) {
@@ -360,8 +364,9 @@ sub get_open_orders {
 # return if the users answer matches $regex
 sub ask {
     my ( $question, $regex ) = @_;
+    $question ||= "no question";
     print "$question";
-    my $answer = <STDIN>;
+    my $answer = <STDIN> || "";
     return ( $answer =~ /$regex/ );
 }
 

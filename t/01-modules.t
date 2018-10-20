@@ -79,7 +79,7 @@ $ENV{LANG} = "en_US.UTF-8"; # if we don't set this, tests fail if LANG isn't lik
         time     => "2017-10-11T13:54:51.834Z",
         trade_id => 2111111,
     );
-    is( $trade->to_str(), "Trade: 2017-10-11T13:54:51.834Z: buy 0.02000000 units at 6200.00000000: trade_id 2111111", "trade to str" );
+    is( $trade->to_str(), "buy 0.02000000 units at 6200.00000000: trade_id 2111111 2017-10-11T13:54:51.834Z", "trade to str" );
 }
 
 {
