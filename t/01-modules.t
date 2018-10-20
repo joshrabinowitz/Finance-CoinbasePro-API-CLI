@@ -5,8 +5,13 @@ use Time::Piece;     # for _tzset()
 $ENV{TZ} = "UTC";       # testing occurs in UTC
 Time::Piece::_tzset();  # see Time::Piece perldocs on TZ in Win32
 
-my $loc = setlocale( LC_ALL, "C" );
-# testing occurs in 'C' english, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
+my $loc = setlocale( LC_ALL, "en_US.UTF-8" );
+$ENV{LANG} = "en_US.UTF-8"; # if we don't set this, tests fail if LANG isn't like en_US 
+
+# testing occurs in US english UTF-8, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
+# note that setlocale( LC_ALL, "C"), fails to pass tests on some linuxes and we get money formatted as $3.469 (period, not comma)
+# so we need to set LANG env var too. See:
+# https://www.cpantesters.org/distro/F/Finance-CoinbasePro-API-CLI.html?oncpan=1&distmat=1&version=0.013&grade=3
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
