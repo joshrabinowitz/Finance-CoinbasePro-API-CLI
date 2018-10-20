@@ -1,5 +1,10 @@
 package Finance::CoinbasePro::API::CLI::Util::DateUtil
   ;    # date/time conversion utilities
+
+use strict;
+use warnings;
+our $VERSION = '0.015';
+
 use strict;
 use warnings;
 

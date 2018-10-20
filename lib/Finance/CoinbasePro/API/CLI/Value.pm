@@ -1,4 +1,9 @@
 package Finance::CoinbasePro::API::CLI::Value;   # stores a value and a currency
+
+use strict;
+use warnings;
+our $VERSION = '0.015';
+
 use Mouse;
 
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil

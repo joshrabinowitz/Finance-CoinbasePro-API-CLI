@@ -1,7 +1,10 @@
 package Finance::CoinbasePro::API::CLI::Util::Config
   ;    # finds and reads config with api key, secret, passphrase
+
 use strict;
 use warnings;
+our $VERSION = '0.015';
+
 
 use File::HomeDir;    # my $home     = File::HomeDir->my_home;
 use File::Spec::Functions qw(catfile);

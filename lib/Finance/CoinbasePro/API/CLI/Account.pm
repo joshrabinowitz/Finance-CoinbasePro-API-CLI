@@ -1,5 +1,10 @@
 package Finance::CoinbasePro::API::CLI::Account
   ;    # this knows about Finance::GDAX::Fill objects and can display them
+
+use strict;
+use warnings;
+our $VERSION = '0.015';
+
 use Mouse;
 use Data::Dump qw(dump);
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil

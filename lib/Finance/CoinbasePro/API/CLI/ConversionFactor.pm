@@ -1,5 +1,10 @@
 package Finance::CoinbasePro::API::CLI::ConversionFactor
   ;    # stores a single currency->currency conversion factor
+
+use strict;
+use warnings;
+our $VERSION = '0.015';
+
 use Mouse;
 
 has 'from_currency' => ( is => 'rw', isa => "Str", required => 1 );

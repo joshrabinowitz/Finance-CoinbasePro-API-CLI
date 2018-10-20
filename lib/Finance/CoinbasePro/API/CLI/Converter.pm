@@ -1,5 +1,10 @@
 package Finance::CoinbasePro::API::CLI::Converter; # converts between currencies
 
+use strict;
+use warnings;
+our $VERSION = '0.015';
+
+
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Value;
 use Finance::CoinbasePro::API::CLI::ConversionFactor;
