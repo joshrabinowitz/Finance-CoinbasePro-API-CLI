@@ -9,7 +9,7 @@ use strict;
 use warnings;
 
 use base qw(Exporter);
-our @EXPORT_OK = qw( getdatetime convert_seconds_to_human_time my_str2time );
+our @EXPORT_OK = qw( getdatetime convert_seconds_to_human_time my_str2time reformat_datetime );
 use Time::Moment;
 
 # returns 19 character string like "2004-04-04 12:30:59"
@@ -75,7 +75,24 @@ sub my_str2time {
     return $t;
 }
 
+sub reformat_datetime {
+    my $s = shift;
+    #print "$0: converting time $s\n";
+
+    my $t = my_str2time($s);
+    #print " to epoch $t\n";
+
+    return getdatetime($t);
+}
+
+##sub ago {
+##    my $date = shift;
+##    return convert_seconds_to_human_time( time() - my_str2time($date) )
+##      . " ago";
+##}
+
 1;
+
 
 
 
@@ -123,6 +140,10 @@ returns 19 character string like "2004-04-04 12:30:59"
 
 like str2time, but uses Time::Piece to parse more date formats
 
+
+=head2 reformat_datetime
+
+ $self->reformat_datetime();
 
 
 =cut

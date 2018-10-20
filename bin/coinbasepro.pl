@@ -258,7 +258,7 @@ sub main {
             }
         }
         else {
-            print "$prog: Not selling\n";
+            print "$prog: Not ${action}ing\n";  # not buying, or not selling
         }
     }
     elsif ( $action eq "top" ) {
