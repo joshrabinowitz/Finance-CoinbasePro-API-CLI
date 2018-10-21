@@ -100,7 +100,7 @@ sub reformat_datetime {
 
 =head1 NAME
 
-lib::Finance::CoinbasePro::API::CLI::Util::DateUtil - lib::Finance::CoinbasePro::API::CLI::Util::DateUtil
+Finance::CoinbasePro::API::CLI::Util::DateUtil - Finance::CoinbasePro::API::CLI::Util::DateUtil
 
 
 =head1 DESCRIPTION
