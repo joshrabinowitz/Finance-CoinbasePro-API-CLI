@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.020    2018-10-21
+        More POD fixes, error messages improved.
+
 0.019    2018-10-21
         POD fixes
 
