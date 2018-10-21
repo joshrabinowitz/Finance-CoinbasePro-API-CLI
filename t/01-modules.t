@@ -1,13 +1,24 @@
 use Test::More;
+use POSIX qw(setlocale);
+use Time::Piece;     # for _tzset()
 
-#$ENV{TIMEZONE} = "EST";
-$ENV{TZ} = "US/Eastern";
+$ENV{TZ} = "UTC";       # testing occurs in UTC
+Time::Piece::_tzset();  # see Time::Piece perldocs on TZ in Win32
+
+$ENV{LANG}   = "en_US.UTF-8"; # if we don't set this, tests fail if LANG isn't like en_US 
+$ENV{LC_ALL} = "en_US.UTF-8"; # if we don't set this, tests fail if LANG isn't like en_US 
+my $loc = setlocale( LC_ALL, "en_US.UTF-8" );
+
+# testing occurs in US english UTF-8, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
+# note that setlocale( LC_ALL, "C"), fails to pass tests on some linuxes and we get money formatted as $3.469 (period, not comma)
+# so we need to set LANG env var too. See:
+# https://www.cpantesters.org/distro/F/Finance-CoinbasePro-API-CLI.html?oncpan=1&distmat=1&version=0.013&grade=3
 
 {
     use_ok( 'Finance::CoinbasePro::API::CLI::Account' );
     my $client= Finance::CoinbasePro::API::CLI::Account->new( 
       available => "3468.65944081011515", balance => "3468.6594408101151500", currency => "USD", hold => "0.0000000000000000",
-      id => "2b81d28b-249b-416d-9ade-720301443d82", #  profile_id => "18f975e3-6d43-4127-aca5-7d2c13b2ea31",
+      id => "2b81d28b-249b-416d-9ade-111111111112", #  profile_id => "18f975e3-6d43-4127-aca5-711111111111",
     );
     is( $client->balance(), "3468.6594408101151500", 'account balance' );
     is( $client->to_str(), '$3,469', 'account as string' );
@@ -56,7 +67,7 @@ $ENV{TZ} = "US/Eastern";
         user_id => "51111111111111111111111z",
     );
     my $str = $fill->to_str();  
-    is( $str, "2017-09-17 04:34:14: sell ETH-BTC: 30.1111ETH at 0.0480BTC, offset 1.4465BTC", "filled trade to_str()" );
+    is( $str, "2017-09-17 08:34:14: sell ETH-BTC: 30.1111ETH at 0.0480BTC, offset 1.4465BTC", "filled trade to_str()" );
         # this time is 4 hours off because above is in UTC and here we're showing time in NYC time. 
 }
 
@@ -69,7 +80,7 @@ $ENV{TZ} = "US/Eastern";
         time     => "2017-10-11T13:54:51.834Z",
         trade_id => 2111111,
     );
-    is( $trade->to_str(), "Trade: 2017-10-11T13:54:51.834Z: buy 0.02000000 units at 6200.00000000: trade_id 2111111", "trade to str" );
+    is( $trade->to_str(), "buy 0.02000000 units at 6200.00000000: trade_id 2111111 2017-10-11T13:54:51.834Z", "trade to str" );
 }
 
 {

@@ -1,27 +1,43 @@
-package Finance::CoinbasePro::API::CLI::Trade;
-# this knows about Finance::GDAX::Fill objects and can display them
+package Finance::CoinbasePro::API::CLI::Trade
+  ;    # knows about Finance::GDAX::Trade objects and can display them
+
+use strict;
+use warnings;
+our $VERSION = '0.018';
+
+
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(my_str2time);
 use Data::Dump;
 
 use Finance::CoinbasePro::API::CLI::Value;
-use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(convert_seconds_to_human_time);
+use Finance::CoinbasePro::API::CLI::Util::DateUtil
+  qw(convert_seconds_to_human_time);
 
-has 'price' => (is=>'rw', isa=>'Num', required=>1); #price    => "6235.00000000",
-has 'side' => (is=>'rw', isa=>'Str', required=>1);  #side     => "sell",
-has 'size' => (is=>'rw', isa=>'Num', required=>1);  #size     => "0.001", 
-has 'time' => (is=>'rw', isa=>'Str', required=>1);  # time     => "2018-10-15T14:15:29.597Z",
-has 'trade_id' => (is=>'rw', isa=>'Int', required=>1);  # trade_id => 2164597,
+# doesn't know what product or currencies it's in
 
-# returns a string 
+has 'price' => ( is => 'rw', isa => 'Num', required => 1 )
+  ;    #price    => "6235.00000000",
+has 'side' => ( is => 'rw', isa => 'Str', required => 1 ); #side     => "sell",
+has 'size' => ( is => 'rw', isa => 'Num', required => 1 ); #size     => "0.001",
+has 'time' => ( is => 'rw', isa => 'Str', required => 1 )
+  ;    # time     => "2018-10-15T14:15:29.597Z",
+has 'trade_id' => ( is => 'rw', isa => 'Int', required => 1 )
+  ;    # trade_id => 2164597,
+
+# returns a string
 sub to_str {
     my $self = shift;
+
     #return Data::Dump::dump($self);
-    return "Trade: $self->{time}: $self->{side} $self->{size} units at $self->{price}: trade_id $self->{trade_id}";
+    return
+"$self->{side} $self->{size} units at $self->{price}: trade_id $self->{trade_id} $self->{time}";
 }
+
 sub ago {
     my $date = shift;
-    return convert_seconds_to_human_time( time() - my_str2time( $date )  ) . " ago";
+    return convert_seconds_to_human_time( time() - my_str2time($date) )
+      . " ago";
 }
 
 1;
@@ -32,11 +48,12 @@ sub ago {
 =head1 NAME
 
 Finance::CoinbasePro::API::CLI::Trade
-
+=======
 
 =head1 DESCRIPTION
 
 this knows about Finance::GDAX::Fill objects and can display them
+doesn't know what product or currencies it's in
 
 
 =head1 REQUIRES
@@ -47,7 +64,7 @@ L<Finance::CoinbasePro::API::CLI::Value>
 
 L<Data::Dump> 
 
-L<Date::Parse> 
+L<Finance::CoinbasePro::API::CLI::Util::DateUtil> 
 
 L<Mouse> 
 
