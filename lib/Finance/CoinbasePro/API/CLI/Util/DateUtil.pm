@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::DateUtil
 
 use strict;
 use warnings;
-our $VERSION = '0.019';
+our $VERSION = '0.020';
 
 use strict;
 use warnings;
@@ -100,7 +100,7 @@ sub reformat_datetime {
 
 =head1 NAME
 
-lib::Finance::CoinbasePro::API::CLI::Util::DateUtil - lib::Finance::CoinbasePro::API::CLI::Util::DateUtil
+Finance::CoinbasePro::API::CLI::Util::DateUtil - Finance::CoinbasePro::API::CLI::Util::DateUtil
 
 
 =head1 DESCRIPTION

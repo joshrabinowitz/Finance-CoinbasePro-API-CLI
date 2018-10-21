@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.019    2018-10-21
+        POD fixes
+
 0.018    2018-10-20
         Factor out reformat_datetime(), fix for locales.
 
