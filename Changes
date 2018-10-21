@@ -1,7 +1,7 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
 0.018    2018-10-20
-        Factor out reformat_datetime()
+        Factor out reformat_datetime(), fix for locales.
 
 0.017    2018-10-20
         Update example in README.md, add pretty-printing of Ticker.
