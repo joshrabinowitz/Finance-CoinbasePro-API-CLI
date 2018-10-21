@@ -43,26 +43,6 @@ sub convert {
         #    return $from_value; # special case, no conversion needed
         #}
     }
-    die "$0: Couldn't find conversion for " . $from_value->to_str() . " to $to_currency\n";
-}
-
-
-sub _convert_value_with_factor {
-    my ($self, $conversion, $from_value, $to_currency) = @_;
-    
-    if ($from_value->currency eq $conversion->from_currency &&
-        $to_currency eq $conversion->to_currency) {
-        my $new_num = $from_value->num * $conversion->factor;
-        return Finance::CoinbasePro::API::CLI::Value->new( num=>$new_num, currency=>$to_currency );
-    }
-    if ($from_value->currency eq $conversion->to_currency &&
-        $to_currency eq $conversion->from_currency) {
-        my $new_num = $from_value->num / $conversion->factor;
-        return Finance::CoinbasePro::API::CLI::Value->new( num=>$new_num, currency=>$to_currency );
-    }
-    if ($from_value->currency ne $conversion->from_currency ) {
-        return $from_value; # special case, no conversion needed
-    }
     die "$0: Couldn't find conversion for "
       . $from_value->to_str()
       . " to $to_currency\n";

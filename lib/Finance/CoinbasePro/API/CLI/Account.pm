@@ -25,7 +25,7 @@ sub to_str {
 #  available => "3468.65944081011515", balance => "3468.6594408101151500", currency => "USD", hold => "0.0000000000000000",
 #  id => "2b81d28b-249b-416d-9ade-111111111112", #  profile_id => "18f975e3-6d43-4127-aca5-711111111111",
     if ( ( my $hold = $self->hold() ) > 0 ) {
-        $str .= " ($hold held)";    # should be a J:D:Value
+        $str .= " ($hold held)";    # should be a J:D:Value, but it's not
     }
     return $str;
 }
