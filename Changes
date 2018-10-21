@@ -1,5 +1,8 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.024    2018-10-21
+        Skip locale issues by not using Number::Format.
+
 0.023    2018-10-21
         More changes for locale in test.
 

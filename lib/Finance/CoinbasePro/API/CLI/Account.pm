@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Account
 
 use strict;
 use warnings;
-our $VERSION = '0.023';
+our $VERSION = '0.024';
 
 use Mouse;
 use Data::Dump qw(dump);

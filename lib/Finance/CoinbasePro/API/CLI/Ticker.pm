@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Ticker
 
 use strict;
 use warnings;
-our $VERSION = '0.023';
+our $VERSION = '0.024';
 
 use Mouse;
 #use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(my_str2time);
