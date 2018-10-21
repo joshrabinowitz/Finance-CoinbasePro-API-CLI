@@ -20,16 +20,20 @@ Here's an example of Finance::CoinbasePro::API::CLI in action:
 	coinbasepro.pl: first param is action to perform
 
 	% ./bin/coinbasepro.pl ticker
-	coinbasepro.pl: ticker: BTC-USD: price: 6401.720000 (bid: 6401.72, ask 6401.73), 
-					volume 4308.79 (trade_id 52713415) 2018-10-20T14:31:41.793000Z
+	coinbasepro.pl: ticker: BTC-USD: price: 6401.530000 (bid: 6440.57, ask 6440.58), volume 2443.32 
+					(trade_id 11111111) 2018-10-20T18:36:18.288000Z
+
+	% ./bin/coinbasepro.pl ticker --product ETH-USD
+	coinbasepro.pl: ticker: ETH-USD: price: 203.230000 (bid: 204.23, ask 204.24), volume 38369.91 
+					(trade_id 2222222) 2018-10-20T18:38:08.859000Z
 
 	% ./bin/coinbasepro.pl accounts
-	coinbasepro.pl: account: $754
+	coinbasepro.pl: account: $556
 	coinbasepro.pl: account: 0.0000ETC
-	coinbasepro.pl: account: 0.0000BTC
+	coinbasepro.pl: account: 0.1000BTC
 	coinbasepro.pl: account: 0.0000LTC
 	coinbasepro.pl: account: 0.0000ETH
-	coinbasepro.pl: account: 0.0410BCH
+	coinbasepro.pl: account: 0.0000BCH
 
 	% ./bin/coinbasepro.pl products
 	coinbasepro.pl: products: ETH-BTC ETH-USD LTC-BTC LTC-USD ETH-EUR LTC-EUR BCH-USD BCH-BTC BCH-EUR BTC-USD BTC-GBP BTC-EUR ETC-USD ETC-EUR ETC-BTC ZRX-EUR ZRX-USD ZRX-BTC

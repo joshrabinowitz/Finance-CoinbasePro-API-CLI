@@ -28,17 +28,19 @@ sub main {
     # assumes presence of correct ~/.coinbasepro file
 
     my @cmds = (
-        "./bin/coinbasepro.pl",
+        "./bin/coinbasepro.pl", 
 
         "./bin/coinbasepro.pl ticker",
+
+        "./bin/coinbasepro.pl ticker --product ETH-USD",
 
         "./bin/coinbasepro.pl accounts",
 
         "./bin/coinbasepro.pl products",
 
-        "echo 'No' | ./bin/coinbasepro.pl sell -price 6401.66 -size 0.01",
+        "echo 'No' '\n' | ./bin/coinbasepro.pl sell -price 6401.66 -size 0.01",
 
-        "echo 'No' | ./bin/coinbasepro.pl buy -price 6401.66 -size 0.01",
+        "echo 'No' '\n' | ./bin/coinbasepro.pl buy -price 6401.66 -size 0.01",
 
     );
 

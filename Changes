@@ -1,5 +1,10 @@
 Revision history for Finance-CoinbasePro-API-CLI
 
+0.022    2018-10-21
+        Add Dist::Zilla::Plugin::CheckChangeLog.
+        Add examples/coinbasepro.conf.
+		Add docs to CLI.pm and coinbasepro.pl
+
 0.021    2018-10-21
         Add pod to coinbase.pl.
 

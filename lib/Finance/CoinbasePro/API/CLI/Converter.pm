@@ -2,7 +2,7 @@ package Finance::CoinbasePro::API::CLI::Converter; # converts between currencies
 
 use strict;
 use warnings;
-our $VERSION = '0.021';
+our $VERSION = '0.022';
 
 use Mouse;
 use Finance::CoinbasePro::API::CLI::Value;
