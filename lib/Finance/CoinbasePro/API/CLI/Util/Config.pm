@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::Config
 
 use strict;
 use warnings;
-our $VERSION = '0.018';
+our $VERSION = '0.019';
 
 use File::HomeDir;    # my $home     = File::HomeDir->my_home;
 use File::Spec::Functions qw(catfile);
@@ -11,12 +11,16 @@ use Config::INI::Reader;
 use List::Util qw(first);
 
 use base qw(Exporter);
-our @EXPORT_OK = qw( get_config_filename get_config );
+our @EXPORT_OK = qw( get_possible_config_filenames get_config_filename get_config );
 
-sub get_config_filename {
+sub get_possible_config_filenames {
     my $user_config = catfile( File::HomeDir->my_home(), ".coinbasepro" );
-    my $etc_config = catfile( "/etc/", ".coinbasepro" );
-    my $config = first { -f $_ } ( $user_config, $etc_config );
+    my $etc_config = catfile( "/etc/", "coinbasepro.conf" );
+    return ($user_config, $etc_config);
+}
+sub get_config_filename {
+    my @configs = get_possible_config_filenames;
+    my $config = first { -f $_ } ( @configs );
     return $config;
 }
 

@@ -24,7 +24,7 @@ use Finance::CoinbasePro::API::CLI::Util::DateUtil qw(getdatetime);
 use Finance::CoinbasePro::API::CLI::Util::CurrencyUtil
   qw(get_product_currencies  format_usd  );
 use Finance::CoinbasePro::API::CLI::Util::Config
-  qw(get_config_filename get_config);
+  qw(get_possible_config_filenames get_config_filename get_config);
 
 
 use Finance::CoinbasePro::API::CLI::Converter;
@@ -93,18 +93,21 @@ sub main {
         die "$prog: size must be non-zero, not '$size'\n"   unless $size;
     }
 
-    $SIG{__DIE__}  = \&Carp::confess;
-    $SIG{__WARN__} = \&Carp::confess;
-
     my $config_filename = get_config_filename();
     my $config          = $config_filename ? get_config($config_filename) : {};
     my @creds           = (
-        key    => $config->{coinbasepro}{api_key}    || $ENV{GDAX_API_KEY},
-        secret => $config->{coinbasepro}{api_secret} || $ENV{GDAX_API_SECRET},
-        passphrase => $config->{coinbasepro}{api_passphrase}
-          || $ENV{GDAX_API_PASSPHRASE},
+        key    => $config->{coinbasepro}{api_key}    || $ENV{GDAX_API_KEY} || "",
+        secret => $config->{coinbasepro}{api_secret} || $ENV{GDAX_API_SECRET} || "",
+        passphrase => $config->{coinbasepro}{api_passphrase} || $ENV{GDAX_API_PASSPHRASE} || "",
         debug => 0
     );
+    if ( !$creds[0]  || !$creds[1] || !$creds[2] ) {
+        warn "$prog: no credentials in " . join(", ", get_possible_config_filenames()) . " or env vars GDAX_API_(KEY|SECRET|PASSPHRASE)\n";
+    }
+
+    $SIG{__DIE__}  = \&Carp::confess;
+    $SIG{__WARN__} = \&Carp::confess;
+
     my @products    = $product ? ($product) : (@all_products);
 
     ## ACCOUNTS
@@ -289,14 +292,7 @@ sub top {
             my ( $from_currency, $to_currency ) =
               get_product_currencies($a_product);
 
-            my $gdax_fills = Finance::GDAX::API::Fill->new(@creds);
-            $gdax_fills->product_id($a_product);
-            my $fills = $gdax_fills->get();
 
-            #print "prog: debug: fills: " . dump($fills) . "\n";
-            my $counter = 1;
-
-            # LOOK AT FILLS AND COMPUTE OVERALL TRADING RESULTS
             my $from_trading_offset =
               Finance::CoinbasePro::API::CLI::Value->new(
                 currency => $from_currency,
@@ -306,9 +302,17 @@ sub top {
                 currency => $to_currency,
                 num      => 0
             );
+
+            # LOOK AT FILLS AND COMPUTE OVERALL TRADING RESULTS
+            my $gdax_fills = Finance::GDAX::API::Fill->new(@creds);
+            $gdax_fills->product_id($a_product);
+            my $fills = $gdax_fills->get() || [];
+
+            print "prog: debug: fills: " . dump($fills) . "\n";
+            my $counter = 1;
             my $num_fills = scalar(@$fills) - 1;
             my $show_max = min( 9, $num_fills );
-          FILL_LOOP:
+            FILL_LOOP:
             for my $i ( 0 .. $show_max ) {
                 my $fill =
                   Finance::CoinbasePro::API::CLI::Fill->new( $fills->[$i] );

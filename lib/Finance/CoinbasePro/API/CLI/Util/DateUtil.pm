@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::DateUtil
 
 use strict;
 use warnings;
-our $VERSION = '0.018';
+our $VERSION = '0.019';
 
 use strict;
 use warnings;
