@@ -2,7 +2,7 @@ package Finance::CoinbasePro::API::CLI::Value;   # stores a value and a currency
 
 use strict;
 use warnings;
-our $VERSION = '0.020';
+our $VERSION = '0.021';
 
 use Mouse;
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-#!/usr/bin/perl -w
+# coinbasepro.pl - command line tool to interact with GDAX / Coinbase Pro
 
 use strict;
 use warnings;
@@ -376,4 +376,33 @@ sub ask {
     my $answer = <STDIN> || "";
     return ( $answer =~ /$regex/ );
 }
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+coinbasepro.pl - interact with GDAX / Coinbase Pro
+
+=head1 VERSION
+
+version 0.021
+
+=head1 OVERVIEW
+
+coinbasepro.pl - interact with GDAX / Coinbase Pro
+
+=head1 AUTHOR
+
+Josh Rabinowitz <joshr>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2018 by Josh Rabinowitz
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
 

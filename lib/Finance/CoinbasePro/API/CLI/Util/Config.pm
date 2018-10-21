@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::Config
 
 use strict;
 use warnings;
-our $VERSION = '0.020';
+our $VERSION = '0.021';
 
 use File::HomeDir;    # my $home     = File::HomeDir->my_home;
 use File::Spec::Functions qw(catfile);

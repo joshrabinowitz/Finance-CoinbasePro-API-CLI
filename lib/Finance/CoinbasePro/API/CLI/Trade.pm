@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Trade
 
 use strict;
 use warnings;
-our $VERSION = '0.020';
+our $VERSION = '0.021';
 
 
 use Mouse;
