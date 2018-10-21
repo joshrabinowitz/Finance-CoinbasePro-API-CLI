@@ -3,7 +3,7 @@ package Finance::CoinbasePro::API::CLI::Util::CurrencyUtil
 
 use strict;
 use warnings;
-our $VERSION = '0.022';
+our $VERSION = '0.023';
 
 use base qw(Exporter);
 our @EXPORT_OK = qw( get_product_currencies

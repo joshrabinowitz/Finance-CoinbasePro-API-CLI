@@ -5,9 +5,15 @@ use Time::Piece;     # for _tzset()
 $ENV{TZ} = "UTC";       # testing occurs in UTC
 Time::Piece::_tzset();  # see Time::Piece perldocs on TZ in Win32
 
-$ENV{LANG}   = "en_US.UTF-8"; # if we don't set this, tests fail if LANG isn't like en_US 
-$ENV{LC_ALL} = "en_US.UTF-8"; # if we don't set this, tests fail if LC_ALL isn't like en_US 
-my $loc = setlocale( &POSIX::LC_ALL, "en_US.UTF-8" );
+#my $desired_locale = "en_US.UTF-8";
+my $desired_locale = "C";
+
+$ENV{LANG}   = $desired_locale; # if we don't set this, tests fail if LANG isn't like en_US 
+$ENV{LC_ALL} = $desired_locale; # if we don't set this, tests fail if LC_ALL isn't like en_US 
+setlocale( &POSIX::LC_ALL, $desired_locale );   # set
+my $loc = setlocale( &POSIX::LC_ALL );          # get
+diag( "locale loc=$loc" );
+is( $loc, $desired_locale, "locale is $desired_locale" );
 
 # testing occurs in US english UTF-8, see https://rt.cpan.org/Public/Bug/Display.html?id=127400
 # note that setlocale( LC_ALL, "C"), fails to pass tests on some linuxes and we get money formatted as $3.469 (period, not comma)
